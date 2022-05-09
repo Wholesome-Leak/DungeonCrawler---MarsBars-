@@ -1,0 +1,245 @@
+<UserControl
+	x:Class="DungeonCrawler.ProductSettingsControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:local="clr-namespace:DungeonCrawler"
+	VerticalAlignment="Stretch"
+	HorizontalAlignment="Stretch"
+	Background="#FF252525"
+	KeyUp="A"
+	MouseLeave="A">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/DungeonCrawler;component/GUI/Theme.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<local:NegativeVisibilityConverter
+					x:Key="NegativeVisibilityConverter" />
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<StackPanel>
+			<Image
+				Height="100"
+				VerticalAlignment="Top"
+				Width="100"
+				Source="/DungeonCrawler;component/GUI/dCrawlerIcon.png" />
+			<Label
+				Content="DungeonCrawler"
+				FontFamily="Segoe WP Semibold"
+				FontSize="36"
+				HorizontalContentAlignment="Center"
+				Foreground="#FFDCDCDC" />
+			<GroupBox
+				Width="100"
+				Header="Role"
+				BorderBrush="{x:Null}">
+				<Control.Background>
+					<LinearGradientBrush
+						EndPoint="1,1"
+						StartPoint="0,0">
+						<GradientStop
+							Color="#FFFF7C00"
+							Offset="0" />
+						<GradientStop
+							Color="#FFFF0054"
+							Offset="1" />
+					</LinearGradientBrush>
+				</Control.Background>
+				<StackPanel>
+					<RadioButton
+						Name="rDamage"
+						Content="Damage"
+						Margin="5"
+						Checked="A" />
+					<RadioButton
+						Name="rHealer"
+						Content="Healer"
+						Margin="5"
+						Checked="a" />
+					<RadioButton
+						Name="rTank"
+						Content="Tank"
+						Margin="5"
+						Checked="B" />
+				</StackPanel>
+			</GroupBox>
+			<GroupBox
+				Width="220"
+				Header="Options"
+				BorderBrush="{x:Null}">
+				<Control.Background>
+					<LinearGradientBrush
+						EndPoint="1,1"
+						StartPoint="0,0">
+						<GradientStop
+							Color="#FFFF7C00"
+							Offset="0" />
+						<GradientStop
+							Color="#FFFF0054"
+							Offset="1" />
+					</LinearGradientBrush>
+				</Control.Background>
+				<StackPanel>
+					<Controls:ToggleSwitch
+						ToggleSwitch.Name="tglGroup"
+						ToggleSwitch.OnLabel="Queuing Group"
+						ToggleSwitch.OffLabel="Queuing Solo"
+						FrameworkElement.ToolTip="Queue as a group or Solo"
+						ToggleSwitch.IsChecked="{Binding QueueGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						x:Name="A" />
+					<Controls:ToggleSwitch
+						ToggleSwitch.Name="tglRandom"
+						ToggleSwitch.OnLabel="Queuing Random"
+						ToggleSwitch.OffLabel="Queuing Specific"
+						FrameworkElement.ToolTip="Which type of LFD Queuing should be selected."
+						ToggleSwitch.IsChecked="{Binding QueueRandom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						x:Name="a" />
+					<Controls:ToggleSwitch
+						ToggleSwitch.Name="tglLeader"
+						ToggleSwitch.OnLabel="Is Leader On"
+						ToggleSwitch.OffLabel="Is Leader Off"
+						FrameworkElement.ToolTip="Whether you will be the party leader and invite other bots."
+						ToggleSwitch.IsChecked="{Binding IsLeader, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						UIElement.Visibility="{Binding ElementName=tglGroup, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
+						x:Name="B" />
+					<GroupBox
+						Name="gbFollowDistance"
+						Width="170"
+						Header="Following Distance"
+						BorderBrush="{x:Null}"
+						Visibility="{Binding ElementName=tglLeader, Path=IsChecked, Converter={StaticResource NegativeVisibilityConverter}}">
+						<Control.Background>
+							<LinearGradientBrush
+								EndPoint="1,1"
+								StartPoint="0,0">
+								<GradientStop
+									Color="#FFFF7C00"
+									Offset="0" />
+								<GradientStop
+									Color="#FFFF0054"
+									Offset="1" />
+							</LinearGradientBrush>
+						</Control.Background>
+						<StackPanel>
+							<Controls:NumericUpDown
+								TextBoxHelper.Watermark="Out of combat"
+								TextBoxHelper.UseFloatingWatermark="True"
+								FrameworkElement.Margin="5"
+								Control.BorderBrush="{x:Null}"
+								NumericUpDown.Value="{Binding OOCFollowDistance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+							<Controls:NumericUpDown
+								TextBoxHelper.Watermark="In combat"
+								TextBoxHelper.UseFloatingWatermark="True"
+								FrameworkElement.Margin="5"
+								Control.BorderBrush="{x:Null}"
+								NumericUpDown.Value="{Binding CombatFollowDistance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+						</StackPanel>
+					</GroupBox>
+					<TextBox
+						Controls:TextBoxHelper.Watermark="Leader Name"
+						Controls:TextBoxHelper.UseFloatingWatermark="True"
+						Margin="5"
+						BorderBrush="{x:Null}"
+						Text="{Binding LeaderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						Visibility="{Binding ElementName=tglLeader, Path=IsChecked, Converter={StaticResource NegativeVisibilityConverter}}" />
+					<TextBox
+						Controls:TextBoxHelper.Watermark="Follow Override Name"
+						Controls:TextBoxHelper.UseFloatingWatermark="True"
+						Margin="5"
+						BorderBrush="{x:Null}"
+						Text="{Binding FollowOverrideName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						Visibility="{Binding ElementName=rTank, Path=IsChecked, Converter={StaticResource NegativeVisibilityConverter}}" />
+					<StackPanel
+						Name="spPartyGrid"
+						Visibility="{Binding ElementName=tglLeader, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
+						<DataGrid
+							Name="dgParty"
+							Margin="5"
+							CanUserAddRows="False"
+							IsReadOnly="True"
+							MaxHeight="300"
+							AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn
+									Header="Party member name"
+									Binding="{Binding}" />
+							</DataGrid.Columns>
+						</DataGrid>
+						<StackPanel
+							Orientation="Horizontal"
+							Margin="5">
+							<Button
+								Name="btnAddPartyMember"
+								Content="Add"
+								Margin="0 5 5 5" />
+							<Button
+								Name="btnDeletePartyMember"
+								Content="Delete"
+								Margin="0 5 5 5" />
+						</StackPanel>
+					</StackPanel>
+					<Controls:ToggleSwitch
+						ToggleSwitch.OnLabel="Always Vendor On"
+						ToggleSwitch.OffLabel="Always Vendor Off"
+						FrameworkElement.ToolTip="If enabled the bot will always attempt to vendor after every dungeon run."
+						ToggleSwitch.IsChecked="{Binding AlwaysVendor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+					<Controls:ToggleSwitch
+						ToggleSwitch.OnLabel="Always Greed On"
+						ToggleSwitch.OffLabel="Always Greed Off"
+						FrameworkElement.ToolTip="If enabled the bot will always Greed on loot rolls."
+						ToggleSwitch.IsChecked="{Binding AlwaysGreed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+					<Controls:ToggleSwitch
+						ToggleSwitch.OnLabel="Auto Equip On"
+						ToggleSwitch.OffLabel="Auto Equip Off"
+						FrameworkElement.ToolTip="If enabled the bot will attmempt to equip better items based on your statweights in advanced options."
+						ToggleSwitch.IsChecked="{Binding AutoEquip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+					<Controls:NumericUpDown
+						TextBoxHelper.Watermark="Loot Range"
+						TextBoxHelper.UseFloatingWatermark="True"
+						FrameworkElement.Margin="5"
+						Control.BorderBrush="{x:Null}"
+						NumericUpDown.Value="{Binding LootRange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+				</StackPanel>
+			</GroupBox>
+			<GroupBox
+				Width="150"
+				Header="EDITORS"
+				BorderBrush="{x:Null}">
+				<Control.Background>
+					<LinearGradientBrush
+						EndPoint="1,1"
+						StartPoint="0,0">
+						<GradientStop
+							Color="#FFFF7C00"
+							Offset="0" />
+						<GradientStop
+							Color="#FFFF0054"
+							Offset="1" />
+					</LinearGradientBrush>
+				</Control.Background>
+				<StackPanel>
+					<Button
+						Content="Open Profile EDITOR"
+						Margin="5"
+						Click="b" />
+					<Button
+						Name="btnTrainingOptions"
+						Content="Advanced Options"
+						Margin="5"
+						Click="C" />
+				</StackPanel>
+			</GroupBox>
+		</StackPanel>
+	</Grid>
+</UserControl>

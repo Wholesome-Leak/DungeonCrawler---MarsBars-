@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{D1621C70-0203-477B-817D-B6386E2877E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DungeonCrawler</RootNamespace>
+    <AssemblyName>DungeonCrawler</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\Development\bin\Debug\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="robotManager" />
+    <Reference Include="robotManager">
+      <HintPath>D:\Wrobot Projects\WRobot - Battleground Farmer\Bin\robotManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="wManager" />
+    <Reference Include="wManager">
+      <HintPath>D:\Wrobot Projects\WRobot - Battleground Farmer\Bin\wManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="-Module-.cs" />
+    <Compile Include="AdvancedOptions.cs" />
+    <Compile Include="A\a.2.cs" />
+    <Compile Include="A\A.cs" />
+    <Compile Include="A\b.2.cs" />
+    <Compile Include="A\B.cs" />
+    <Compile Include="A\c.2.cs" />
+    <Compile Include="A\C.cs" />
+    <Compile Include="A\d.2.cs" />
+    <Compile Include="A\D.cs" />
+    <Compile Include="A\e.2.cs" />
+    <Compile Include="A\E.cs" />
+    <Compile Include="A\f.2.cs" />
+    <Compile Include="A\F.cs" />
+    <Compile Include="A\g.2.cs" />
+    <Compile Include="A\G.cs" />
+    <Compile Include="A\h.2.cs" />
+    <Compile Include="A\H.cs" />
+    <Compile Include="A\i.2.cs" />
+    <Compile Include="A\I.cs" />
+    <Compile Include="A\j.2.cs" />
+    <Compile Include="A\J.cs" />
+    <Compile Include="A\k.2.cs" />
+    <Compile Include="A\K.cs" />
+    <Compile Include="A\l.2.cs" />
+    <Compile Include="A\L.cs" />
+    <Compile Include="A\m.2.cs" />
+    <Compile Include="A\M.cs" />
+    <Compile Include="A\n.2.cs" />
+    <Compile Include="A\N.cs" />
+    <Compile Include="A\o.2.cs" />
+    <Compile Include="A\O.cs" />
+    <Compile Include="A\p.2.cs" />
+    <Compile Include="A\P.cs" />
+    <Compile Include="A\q.2.cs" />
+    <Compile Include="A\Q.cs" />
+    <Compile Include="A\R.cs" />
+    <Compile Include="ConditionType.cs" />
+    <Compile Include="CustomDungeonBehaviour.cs" />
+    <Compile Include="dummy_ptr\{1e41e8dc-3839-45b2-9a6c-0837e738f252}.cs" />
+    <Compile Include="Dungeon.cs" />
+    <Compile Include="DungeonCrawlerSettings.cs" />
+    <Compile Include="DungeonProfile.cs" />
+    <Compile Include="DungeonStep.cs" />
+    <Compile Include="DungeonStepCondition.cs" />
+    <Compile Include="FollowNPCStep.cs" />
+    <Compile Include="FollowPathStep.cs" />
+    <Compile Include="GossipNpcStep.cs" />
+    <Compile Include="InteractStep.cs" />
+    <Compile Include="ItemStats.cs" />
+    <Compile Include="LFGMode.cs" />
+    <Compile Include="LFGRole.cs" />
+    <Compile Include="LuaFrame.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="NegativeVisibilityConverter.cs" />
+    <Compile Include="ProductSettingsControl.cs" />
+    <Compile Include="ProfileEditor.cs" />
+    <Compile Include="ProfileStep.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueDungeon.cs" />
+    <Compile Include="RunCodeStep.cs" />
+    <Compile Include="StatusWindow.cs" />
+    <Compile Include="StepType.cs" />
+    <Compile Include="VisibilityConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="costura.costura.dll.compressed" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="gui\advancedoptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gui\productsettingscontrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gui\profileeditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gui\profilestep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gui\statuswindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gui\theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gui\dcrawlericon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,113 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+	<Color
+		x:Key="HighlightColor">#C41F3B</Color>
+	<Color
+		x:Key="AccentBaseColor">#C41F3B</Color>
+	<Color
+		x:Key="AccentColor">#FF0054</Color>
+	<Color
+		x:Key="AccentColor2">#781324</Color>
+	<Color
+		x:Key="AccentColor3">#781324</Color>
+	<Color
+		x:Key="AccentColor4">#C79C6E</Color>
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource HighlightColor}"
+		x:Key="HighlightBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentBaseColor}"
+		x:Key="AccentBaseColorBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="AccentColorBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor2}"
+		x:Key="AccentColorBrush2" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor3}"
+		x:Key="AccentColorBrush3" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor4}"
+		x:Key="AccentColorBrush4" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="WindowTitleColorBrush" />
+	<LinearGradientBrush
+		x:Freeze="True"
+		StartPoint="1.002,0.5"
+		EndPoint="0.001,0.5"
+		x:Key="ProgressBrush">
+		<GradientStop
+			Offset="0"
+			Color="{StaticResource HighlightColor}" />
+		<GradientStop
+			Offset="1"
+			Color="{StaticResource AccentColor3}" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="CheckmarkFill" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="RightArrowFill" />
+	<Color
+		x:Key="IdealForegroundColor">White</Color>
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="IdealForegroundColorBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Opacity="0.4"
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="IdealForegroundDisabledBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="AccentSelectedColorBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="MetroDataGrid.HighlightBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="MetroDataGrid.HighlightTextBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor3}"
+		x:Key="MetroDataGrid.MouseOverHighlightBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="MetroDataGrid.FocusBorderBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor2}"
+		x:Key="MetroDataGrid.InactiveSelectionHighlightBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="MetroDataGrid.InactiveSelectionHighlightTextBrush" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor}"
+		x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchBrush.Win10" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource AccentColor2}"
+		x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchMouseOverBrush.Win10" />
+	<SolidColorBrush
+		x:Freeze="True"
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.ThumbIndicatorCheckedBrush.Win10" />
+</ResourceDictionary>

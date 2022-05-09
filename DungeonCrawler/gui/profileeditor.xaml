@@ -1,0 +1,359 @@
+<Controls:MetroWindow
+	x:Class="DungeonCrawler.ProfileEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:local="clr-namespace:DungeonCrawler"
+	Controls:MetroWindow.Name="ProfileEditorWindow"
+	Window.SizeToContent="WidthAndHeight"
+	Control.BorderThickness="1"
+	Controls:MetroWindow.GlowBrush="#FF000000"
+	Controls:MetroWindow.TitleCaps="False"
+	Control.Background="#FF252525"
+	Window.Title="DungeonCrawler Profile Editor"
+	Window.Topmost="True"
+	x:Name="A">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/DungeonCrawler;component/GUI/Theme.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Controls:MetroWindow.WindowTitleBrush>
+		<LinearGradientBrush
+			EndPoint="1,1"
+			StartPoint="0,0">
+			<GradientStop
+				Color="#FFFF7C00"
+				Offset="0" />
+			<GradientStop
+				Color="#FFFF0054"
+				Offset="1" />
+		</LinearGradientBrush>
+	</Controls:MetroWindow.WindowTitleBrush>
+	<Grid>
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<local:VisibilityConverter
+					x:Key="VisibilityConverter" />
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<StackPanel
+			Margin="5">
+			<StackPanel
+				Orientation="Horizontal">
+				<StackPanel
+					Margin="5">
+					<StackPanel
+						Orientation="Horizontal"
+						Margin="5">
+						<Button
+							Name="btnNewProfile"
+							Content="New"
+							Margin="0 0 5 0"
+							Click="A" />
+						<Button
+							Name="btnOpenProfile"
+							Content="Open"
+							Margin="0 0 5 0"
+							Click="a" />
+						<Button
+							Name="btnSaveProfile"
+							Content="Save Profile"
+							Margin="0 0 5 0"
+							Click="B" />
+						<Button
+							Name="btnToggleOverlay"
+							Content="Toggle Overlay"
+							Margin="0 0 5 0"
+							Click="j" />
+					</StackPanel>
+					<GroupBox
+						Header="Profile Step Order"
+						BorderBrush="{x:Null}">
+						<Control.Background>
+							<LinearGradientBrush
+								EndPoint="1,1"
+								StartPoint="0,0">
+								<GradientStop
+									Color="#FFFF7C00"
+									Offset="0" />
+								<GradientStop
+									Color="#FFFF0054"
+									Offset="1" />
+							</LinearGradientBrush>
+						</Control.Background>
+						<StackPanel>
+							<TextBox
+								Name="txtProfileName"
+								Controls:TextBoxHelper.Watermark="Profile Name"
+								Controls:TextBoxHelper.UseFloatingWatermark="True"
+								Margin="5"
+								BorderBrush="{x:Null}"
+								Text="{Binding currentProfile.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+							<ComboBox
+								Name="cbDungeon"
+								Margin="5"
+								Controls:TextBoxHelper.UseFloatingWatermark="True"
+								Controls:TextBoxHelper.Watermark="Dungeon"
+								SelectedValue="{Binding currentProfile.DungeonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								SelectionChanged="B" />
+							<StackPanel
+								Orientation="Horizontal"
+								HorizontalAlignment="Right">
+								<Controls:NumericUpDown
+									NumericUpDown.Name="txtFinalBossId"
+									FrameworkElement.Width="130"
+									TextBoxHelper.Watermark="Final Boss ID"
+									TextBoxHelper.UseFloatingWatermark="True"
+									FrameworkElement.Margin="5"
+									Control.BorderBrush="{x:Null}"
+									NumericUpDown.Value="{Binding currentProfile.FinalBossId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									x:Name="A" />
+								<Button
+									Name="btnGetTargetMobId"
+									Content="Get Target ID"
+									Margin="5"
+									Click="J" />
+							</StackPanel>
+							<DataGrid
+								Name="dgProfileSteps"
+								Margin="5"
+								AutoGenerateColumns="False"
+								IsReadOnly="True"
+								MaxHeight="300"
+								SelectionChanged="A">
+								<DataGrid.Columns>
+									<DataGridTextColumn
+										Header="Order"
+										Binding="{Binding Path=Order}" />
+									<DataGridTextColumn
+										Header="Step Type"
+										Binding="{Binding Path=StepType}" />
+									<DataGridTextColumn
+										Header="Step Name"
+										Binding="{Binding Path=StepName}" />
+								</DataGrid.Columns>
+							</DataGrid>
+							<StackPanel
+								Orientation="Horizontal"
+								Margin="5">
+								<Button
+									Name="btnAddStep"
+									Content="Add"
+									Margin="0 0 5 0"
+									Click="b">
+									<FrameworkElement.ContextMenu>
+										<ContextMenu>
+											<MenuItem
+												Name="miFollowPathStep"
+												Header="FollowPathStep"
+												Click="g" />
+											<MenuItem
+												Name="miInteractStep"
+												Header="InteractStep"
+												Click="H" />
+											<MenuItem
+												Name="miGossipNpcStep"
+												Header="GossipNpcStep"
+												Click="h" />
+											<MenuItem
+												Name="miRunCodeStep"
+												Header="RunCodeStep"
+												Click="I" />
+											<MenuItem
+												Name="miFollowNpcStep"
+												Header="FollowNpcStep"
+												Click="i" />
+										</ContextMenu>
+									</FrameworkElement.ContextMenu>
+								</Button>
+								<Button
+									Name="btnDeleteStep"
+									Content="Delete"
+									Margin="0 0 5 0"
+									Click="C" />
+								<Button
+									Name="btnMoveStepUp"
+									Content="Up"
+									Margin="0 0 5 0"
+									Click="f" />
+								<Button
+									Name="btnMoveStepDown"
+									Content="Down"
+									Margin="0 0 5 0"
+									Click="G" />
+							</StackPanel>
+						</StackPanel>
+					</GroupBox>
+					<GroupBox
+						Name="gbDeathRun"
+						Header="Death run path"
+						BorderBrush="{x:Null}"
+						Visibility="{Binding ElementName=cbDungeon, Path=SelectedItem, Converter={StaticResource VisibilityConverter}}">
+						<Control.Background>
+							<LinearGradientBrush
+								EndPoint="1,1"
+								StartPoint="0,0">
+								<GradientStop
+									Color="#FFFF7C00"
+									Offset="0" />
+								<GradientStop
+									Color="#FFFF0054"
+									Offset="1" />
+							</LinearGradientBrush>
+						</Control.Background>
+						<StackPanel>
+							<DataGrid
+								Name="dgDeathRun"
+								Margin="5"
+								CanUserAddRows="False"
+								IsReadOnly="True"
+								MaxHeight="300" />
+							<StackPanel
+								Orientation="Horizontal"
+								Margin="5">
+								<Button
+									Name="btnAddDeathRunVector"
+									Content="Add"
+									Margin="0 5 5 5"
+									Click="d" />
+								<Button
+									Name="btnDeleteDeathRunVector"
+									Content="Delete"
+									Margin="0 5 5 5"
+									Click="E" />
+								<Controls:ToggleSwitch
+									ToggleSwitch.Name="chkRecordDeathRunPath"
+									ToggleSwitch.OnLabel="Record Path"
+									ToggleSwitch.OffLabel="Record Path"
+									ToggleSwitch.IsChecked="False"
+									x:Name="A" />
+							</StackPanel>
+						</StackPanel>
+					</GroupBox>
+				</StackPanel>
+				<StackPanel
+					Margin="5">
+					<local:ProfileStep
+						Name="psControl"
+						Visibility="{Binding ElementName=dgProfileSteps, Path=SelectedItem, Converter={StaticResource VisibilityConverter}}" />
+					<GroupBox
+						Header="Offmesh Connections"
+						BorderBrush="{x:Null}"
+						Visibility="{Binding ElementName=cbDungeon, Path=SelectedItem, Converter={StaticResource VisibilityConverter}}">
+						<Control.Background>
+							<LinearGradientBrush
+								EndPoint="1,1"
+								StartPoint="0,0">
+								<GradientStop
+									Color="#FFFF7C00"
+									Offset="0" />
+								<GradientStop
+									Color="#FFFF0054"
+									Offset="1" />
+							</LinearGradientBrush>
+						</Control.Background>
+						<StackPanel>
+							<DataGrid
+								Name="dgOffmeshList"
+								Margin="5"
+								CanUserAddRows="False"
+								AutoGenerateColumns="False"
+								IsReadOnly="True"
+								MaxHeight="300"
+								SelectionChanged="a">
+								<DataGrid.Columns>
+									<DataGridTextColumn
+										Header="Name"
+										Binding="{Binding Path=Name}" />
+								</DataGrid.Columns>
+							</DataGrid>
+							<StackPanel
+								Orientation="Horizontal"
+								Margin="5">
+								<Button
+									Name="btnOcAdd"
+									Content="Add"
+									Margin="0 0 5 0"
+									Click="c" />
+								<Button
+									Name="btnOcDelete"
+									Content="Delete"
+									Margin="0 0 5 0"
+									Click="D" />
+							</StackPanel>
+							<GroupBox
+								Name="gbOffmeshConnection"
+								Header="Offmesh Connection"
+								Margin="10"
+								BorderBrush="{x:Null}"
+								Visibility="{Binding ElementName=dgOffmeshList, Path=SelectedItem, Converter={StaticResource VisibilityConverter}}">
+								<Control.Background>
+									<LinearGradientBrush
+										EndPoint="1,1"
+										StartPoint="0,0">
+										<GradientStop
+											Color="#FFFF7C00"
+											Offset="0" />
+										<GradientStop
+											Color="#FFFF0054"
+											Offset="1" />
+									</LinearGradientBrush>
+								</Control.Background>
+								<StackPanel>
+									<StackPanel
+										Orientation="Horizontal">
+										<TextBox
+											Controls:TextBoxHelper.Watermark="Offmesh Name"
+											Controls:TextBoxHelper.UseFloatingWatermark="True"
+											Margin="5"
+											BorderBrush="{x:Null}"
+											Text="{Binding ElementName=dgOffmeshList, Path=SelectedItem.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+										<ComboBox
+											Name="cbOffMeshDirection"
+											Controls:TextBoxHelper.UseFloatingWatermark="True"
+											Controls:TextBoxHelper.Watermark="Direction"
+											Margin="5"
+											SelectedItem="{Binding ElementName=dgOffmeshList, Path=SelectedItem.Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+										<TextBox
+											Controls:TextBoxHelper.Watermark="Continent ID"
+											Controls:TextBoxHelper.UseFloatingWatermark="True"
+											Margin="5"
+											BorderBrush="{x:Null}"
+											Text="{Binding ElementName=dgOffmeshList, Path=SelectedItem.ContinentId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+									</StackPanel>
+									<DataGrid
+										Name="dgOffmeshPath"
+										Margin="5"
+										IsReadOnly="True"
+										MaxHeight="300" />
+									<StackPanel
+										Orientation="Horizontal"
+										Margin="5">
+										<Button
+											Name="btnOCPAdd"
+											Content="Add"
+											Margin="0 0 5 0"
+											Click="e" />
+										<Button
+											Name="btnOCPDelete"
+											Content="Delete"
+											Margin="0 0 5 0"
+											Click="F" />
+									</StackPanel>
+								</StackPanel>
+							</GroupBox>
+						</StackPanel>
+					</GroupBox>
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Controls:MetroWindow>
